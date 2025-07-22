@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Functionality Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #formOutput, #dateTime, #text {
+      margin-top: 20px;
+    }
+    img {
+      margin-top: 20px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Basic Information Form -->
+  <h2>1. Basic Information Form</h2>
+  <form id="basicForm">
+    Name: <input type="text" id="name"><br><br>
+    Email: <input type="email" id="email"><br><br>
+    Age: <input type="number" id="age"><br><br>
+    <button type="button" onclick="displayFormData()">Submit</button>
+  </form>
+  <div id="formOutput"></div>
+
+  <hr>
+
+  <!-- 2. Change Image on Button Click -->
+  <h2>2. Change Image on Button Click</h2>
+  <img id="myImage" src="t16.jpeg" alt="Sample Image">
+  <br><br>
+  <button onclick="changeImage()">Change Image</button>
+
+  <hr>
+
+  <!-- 3. Increase and Decrease Font Size -->
+  <h2>3. Font Size Control</h2>
+  <div id="text">This is a sample text for font size change.</div>
+  <br>
+  <button onclick="changeFontSize('increase')">Increase Font</button>
+  <button onclick="changeFontSize('decrease')">Decrease Font</button>
+
+  <hr>
+
+  <!-- 4. Display Current Date and Time -->
+  <h2>4. Current Date & Time</h2>
+  <div id="dateTime"></div>
+
+  <script>
+    // Function 1: Display Form Data
+    function displayFormData() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const age = document.getElementById('age').value;
+
+      document.getElementById('formOutput').innerHTML =
+        `<h3>Form Data:</h3>
+         <p><strong>Name:</strong> ${name}</p>
+         <p><strong>Email:</strong> ${email}</p>
+         <p><strong>Age:</strong> ${age}</p>`;
+    }
+
+    // Function 2: Change Image
+    function changeImage() {
+      const img = document.getElementById('myImage');
+      if (img.src.includes('t16.jpeg')) {
+        img.src = "t51.jpeg";
+      } else {
+        img.src = "t16.jpeg";
+      }
+    }
+
+    // Function 3: Font Size Control
+    let currentSize = 16;
+    function changeFontSize(action) {
+      if (action === 'increase') {
+        currentSize += 2;
+      } else if (action === 'decrease' && currentSize > 10) {
+        currentSize -= 2;
+      }
+      document.getElementById('text').style.fontSize = currentSize + 'px';
+    }
+
+    // Function 4: Display Date and Time
+    function showDateTime() {
+      const now = new Date();
+      const dateTimeString = now.toLocaleString();
+      document.getElementById('dateTime').innerText = dateTimeString;
+    }
+
+    showDateTime();
+    setInterval(showDateTime, 1000); // Update every second
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Let's Learn It - Registration Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #bbdefb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0d47a1;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #0d47a1;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #1565c0;
+    }
+
+    .view-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .view-link a {
+      color: #0d47a1;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .view-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h1>Fill the Form</h1>
+    <form action="thankyou.html" method="get">
+
+      <div class="form-group">
+        <label for="username">Enter Your Name</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="male" /> Male</label>
+          <label><input type="radio" name="gender" value="female" /> Female</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label><input type="checkbox" name="education" value="yes" /> I have completed Intermediate</label>
+      </div>
+
+      <div class="form-group">
+        <label for="fruits">Your Favourite Food</label>
+        <select id="fruits" name="fruits">
+          <option value="apple">Apple</option>
+          <option value="banana">Banana</option>
+          <option value="grapes">Grapes</option>
+          <option value="cherry">Cherry</option>
+          <option value="none">None of the Above</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="comment">Comment on Your Favourite Food</label>
+        <textarea id="comment" name="comment" rows="4" placeholder="Write your thoughts..."></textarea>
+      </div>
+
+      <div class="form-group" style="text-align: center;">
+        <button type="submit">Submit</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</body>
+</html>

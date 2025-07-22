@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Four Section Layout</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            width: 90%;
+            gap: 20px;
+        }
+
+        .box {
+            flex: 1;
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+        }
+
+        .box img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="box">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home Icon">
+        <h2>Home</h2>
+    </div>
+
+    <div class="box">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="About Icon">
+        <h2>About</h2>
+    </div>
+
+    <div class="box">
+        <img src="https://cdn-icons-png.flaticon.com/512/545/545680.png" alt="Gallery Icon">
+        <h2>Gallery</h2>
+    </div>
+
+    <div class="box">
+        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Contact Icon">
+        <h2>Contact</h2>
+    </div>
+</div>
+
+</body>
+</html>

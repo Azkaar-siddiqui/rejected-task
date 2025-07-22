@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Function Programs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1a237e;
+    }
+
+    .section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label, p {
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #1a237e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3949ab;
+    }
+
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Function Tasks</h1>
+
+  <!-- 1. Filter Negative Numbers -->
+  <div class="section">
+    <p>1. Filter out negative numbers from an array</p>
+    <label>Enter numbers separated by commas:</label>
+    <input type="text" id="negInput" placeholder="e.g. 3, -5, 10, -1, 7">
+    <button onclick="filterNegatives()">Filter</button>
+    <div class="result" id="negResult"></div>
+  </div>
+
+  <!-- 2. Difference from 13 -->
+  <div class="section">
+    <p>2. Difference from 13 (Double if greater than 13)</p>
+    <label>Enter a number:</label>
+    <input type="number" id="diffInput" placeholder="e.g. 20">
+    <button onclick="differenceFrom13()">Calculate</button>
+    <div class="result" id="diffResult"></div>
+  </div>
+
+  <!-- 3. Fibonacci Series -->
+  <div class="section">
+    <p>3. Generate Fibonacci series</p>
+    <label>Enter number of terms:</label>
+    <input type="number" id="fibInput" placeholder="e.g. 10">
+    <button onclick="fibonacciSeries()">Generate</button>
+    <div class="result" id="fibResult"></div>
+  </div>
+
+  <!-- 4. Sum of Multiples of 3 and 5 -->
+  <div class="section">
+    <p>4. Sum of multiples of 3 and 5 below a number</p>
+    <label>Enter limit number:</label>
+    <input type="number" id="sumInput" placeholder="e.g. 1000">
+    <button onclick="sumMultiples()">Calculate Sum</button>
+    <div class="result" id="sumResult"></div>
+  </div>
+
+  <!-- 5. Cube using Function Object -->
+  <div class="section">
+    <p>5. Cube of a number using Function Object</p>
+    <label>Enter a number:</label>
+    <input type="number" id="cubeInput" placeholder="e.g. 3">
+    <button onclick="cubeNumber()">Get Cube</button>
+    <div class="result" id="cubeResult"></div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // 1. Filter Negatives
+    function filterNegatives() {
+      const input = document.getElementById("negInput").value;
+      const nums = input.split(",").map(Number);
+      const filtered = nums.filter(n => n >= 0);
+      document.getElementById("negResult").innerText = "Filtered Array: " + filtered.join(", ");
+    }
+
+    // 2. Difference from 13
+    function differenceFrom13() {
+      const num = parseFloat(document.getElementById("diffInput").value);
+      let result;
+      if (num > 13) {
+        result = 2 * Math.abs(num - 13);
+      } else {
+        result = 13 - num;
+      }
+      document.getElementById("diffResult").innerText = "Result: " + result;
+    }
+
+    // 3. Fibonacci Series
+    function fibonacciSeries() {
+      const n = parseInt(document.getElementById("fibInput").value);
+      if (n <= 0) {
+        document.getElementById("fibResult").innerText = "Please enter a positive number.";
+        return;
+      }
+      const fib = [0, 1];
+      for (let i = 2; i < n; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+      }
+      document.getElementById("fibResult").innerText = "Fibonacci Series: " + fib.slice(0, n).join(", ");
+    }
+
+    // 4. Sum of Multiples of 3 and 5
+    function sumMultiples() {
+      const limit = parseInt(document.getElementById("sumInput").value);
+      let sum = 0;
+      for (let i = 1; i < limit; i++) {
+        if (i % 3 === 0 || i % 5 === 0) {
+          sum += i;
+        }
+      }
+      document.getElementById("sumResult").innerText = "Sum: " + sum;
+    }
+
+    // 5. Cube using Function Object
+    function cubeNumber() {
+      const num = parseFloat(document.getElementById("cubeInput").value);
+      const cube = new Function("n", "return n * n * n;");
+      document.getElementById("cubeResult").innerText = "Cube: " + cube(num);
+    }
+  </script>
+</body>
+</html>
