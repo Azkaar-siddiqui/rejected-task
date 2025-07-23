@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Let's Learn It - Registration Form</title>
+  <title>Basic Information Form</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -41,8 +41,8 @@
     }
 
     input[type="text"],
-    select,
-    textarea {
+    input[type="email"],
+    select {
       width: 100%;
       padding: 10px;
       border: 1px solid #ccc;
@@ -53,12 +53,13 @@
     .radio-group,
     .checkbox-group {
       display: flex;
+      flex-wrap: wrap;
       gap: 15px;
       margin-top: 10px;
     }
 
-    textarea {
-      resize: vertical;
+    .checkbox-group label {
+      font-weight: normal;
     }
 
     button {
@@ -69,37 +70,37 @@
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
+      margin: 0 10px;
     }
 
     button:hover {
       background-color: #1565c0;
     }
 
-    .view-link {
+    .button-group {
       text-align: center;
-      margin-top: 20px;
-    }
-
-    .view-link a {
-      color: #0d47a1;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .view-link a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
   <div class="form-container">
-    <h1>Fill the Form</h1>
-    <form action="thankyou.html" method="get">
+    <h1>Basic Information Form</h1>
+    <form>
 
       <div class="form-group">
-        <label for="username">Enter Your Name</label>
-        <input type="text" id="username" name="username" required />
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="mobile">Mobile No</label>
+        <input type="text" id="mobile" name="mobile" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
       </div>
 
       <div class="form-group">
@@ -111,31 +112,30 @@
       </div>
 
       <div class="form-group">
-        <label><input type="checkbox" name="education" value="yes" /> I have completed Intermediate</label>
+        <label>Education Done</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="education[]" value="highschool" /> High School</label>
+          <label><input type="checkbox" name="education[]" value="intermediate" /> Intermediate</label>
+          <label><input type="checkbox" name="education[]" value="graduation" /> Graduation</label>
+          <label><input type="checkbox" name="education[]" value="postgraduation" /> Post Graduation</label>
+        </div>
       </div>
 
       <div class="form-group">
-        <label for="fruits">Your Favourite Food</label>
-        <select id="fruits" name="fruits">
-          <option value="apple">Apple</option>
-          <option value="banana">Banana</option>
-          <option value="grapes">Grapes</option>
-          <option value="cherry">Cherry</option>
-          <option value="none">None of the Above</option>
+        <label for="tea">Do You Like Tea?</label>
+        <select id="tea" name="tea">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+          <option value="sometimes">Sometimes</option>
         </select>
       </div>
 
-      <div class="form-group">
-        <label for="comment">Comment on Your Favourite Food</label>
-        <textarea id="comment" name="comment" rows="4" placeholder="Write your thoughts..."></textarea>
-      </div>
-
-      <div class="form-group" style="text-align: center;">
+      <div class="form-group button-group">
         <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
       </div>
 
     </form>
-
   </div>
 
 </body>
